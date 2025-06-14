@@ -240,7 +240,7 @@ def main():
             print("Starting live capture...(CTRL+C to quit)")
             print("Any detected anomalies will be displayed in the console.")
 
-            capture = pyshark.LiveCapture() # ADD USER'S INTERFACE HERE
+            capture = pyshark.LiveCapture() 
 
             for packet in capture.sniff_continuously():
                 detect_arp_spoofing(packet)
