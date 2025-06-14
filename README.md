@@ -11,7 +11,7 @@ The IDS scripts are written in Python and tested using publicly available `.pcap
 ## Detection Modes
 
 <div align="center">
-    <img src="assets/manual.png" alt="Online vs Offline Detection" width="800"/>
+    <img src="assets/manual.png" alt="Online vs Offline Detection" width="600"/>
     <h4>Online vs Offline Detection Modes</h4>
 </div>
 
@@ -31,17 +31,28 @@ This IDS supports two modes of operation:
 
 ## 🔍 Detection Modules
 
+>[!NOTE]
+>
+>This project is intentionally kept **lightweight and focused** for clarity and learning.
+>
+>It currently supports detection of **three fundamental attack types**:  
+>- ARP Spoofing  
+>- DNS Spoofing  
+>- Port Scanning  
+>
+>This minimal design makes it easier to understand and extend for educational use or prototyping.
+
 ### Address Resolution Protocol (ARP) Spoofing
 
-ARP spoofing allows an attacker to intercept, modify, or block data intended for another host on a local network.
+ARP spoofing is a network attack in which a malicious actor sends fake ARP messages to associate their MAC address with the IP address of another device, usually a gateway. This allows the attacker to intercept, monitor, or manipulate traffic between devices. The IDS detects this behavior by identifying inconsistent ARP mappings, duplicate IP-to-MAC relationships, and abnormal ARP activity patterns.
 
 <div align="center">
-    <img src="assets/arpspoof_example.png" alt="ARP Spoofing Example Usage" width="800"/>
+    <img src="assets/arpspoof_example.png" alt="ARP Spoofing Example Usage" width="750"/>
     <h4>Example: ARP Spoofing Detection in Action</h4>
 </div>
 
 <div align="center">
-    <img src="assets/arpspoof_report.png" alt="ARP Spoofing Report" width="800"/>
+    <img src="assets/arpspoof_report.png" alt="ARP Spoofing Report" width="750"/>
     <h4>Generated Report for ARP Spoofing</h4>
 </div>
 
@@ -49,15 +60,15 @@ ARP spoofing allows an attacker to intercept, modify, or block data intended for
 
 ### Domain Name System (DNS) Spoofing
 
-DNS spoofing redirects traffic from a legitimate server to a malicious one by altering DNS responses.
+DNS spoofing, also known as DNS cache poisoning, tricks a system into resolving domain names to incorrect IP addresses. This type of attack is often used to redirect users to fake or malicious websites. The IDS detects DNS spoofing by analyzing domain resolution inconsistencies, suspicious DNS responses, and mismatches between request and response sources.
 
 <div align="center">
-    <img src="assets/dnsspoof_example.png" alt="DNS Spoofing Example Usage" width="800"/>
+    <img src="assets/dnsspoof_example.png" alt="DNS Spoofing Example Usage" width="750"/>
     <h4>Example: DNS Spoofing Detection in Action</h4>
 </div>
 
 <div align="center">
-    <img src="assets/dnsspoof_report.png" alt="DNS Spoofing Report" width="800"/>
+    <img src="assets/dnsspoof_report.png" alt="DNS Spoofing Report" width="750"/>
     <h4>Generated Report for DNS Spoofing</h4>
 </div>
 
@@ -65,10 +76,10 @@ DNS spoofing redirects traffic from a legitimate server to a malicious one by al
 
 ### Port Scanning
 
-Port scanning is a technique used to identify open ports and services on a target system, often as a precursor to an attack.
+Port scanning is a technique used by attackers to discover open ports and active services on a target system. It is commonly used during the reconnaissance phase of an attack. The IDS identifies port scanning by detecting a high number of connection attempts across multiple ports from a single source within a short period of time.
 
 <div align="center">
-    <img src="assets/portscan_example.png" alt="Port Scanning Example Usage" width="800"/>
+    <img src="assets/portscan_example.png" alt="Port Scanning Example Usage" width="750"/>
     <h4>Example: Port Scanning Detection in Action</h4>
 </div>
 
